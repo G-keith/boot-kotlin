@@ -43,9 +43,13 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     compile "org.springframework.boot:spring-boot-starter:$springboot_version"
     compile "org.springframework.boot:spring-boot-starter-web:$springboot_version"
-    compile "com.github.pagehelper:pagehelper-spring-boot-starter:$pagerHelper"
+//    compile "com.github.pagehelper:pagehelper-spring-boot-starter:$pagerHelper"
+    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.1.2'
     compile "mysql:mysql-connector-java:$mysql_connect"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson"
+    //代码生成
+    compile group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.1.2'
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
 }
 
 compileKotlin {

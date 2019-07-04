@@ -10,6 +10,7 @@ import org.springframework.boot.runApplication
  *@version 1.0
  */
 @SpringBootApplication
+@MapperScan("com.kotlin.mapper")
 class KotlinApplication
 
 fun main(args: Array<String>) {
