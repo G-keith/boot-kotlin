@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
  */
 @EnableTransactionManagement
 @Configuration
-@MapperScan("com.kotlin.service.*.mapper*")
 class MybatisPlusConfig{
 
     /**
