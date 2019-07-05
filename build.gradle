@@ -5,6 +5,9 @@ buildscript {
         pagerHelper = '1.2.6'
         mysql_connect='8.0.15'
         jackson='2.9.9'
+        swagger2="2.8.0"
+        mybatis_plus="3.1.2"
+        lombok="1.18.2"
     }
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
@@ -43,13 +46,13 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     compile "org.springframework.boot:spring-boot-starter:$springboot_version"
     compile "org.springframework.boot:spring-boot-starter-web:$springboot_version"
-//    compile "com.github.pagehelper:pagehelper-spring-boot-starter:$pagerHelper"
-    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.1.2'
+    compile "com.baomidou:mybatis-plus-boot-starter:$mybatis_plus"
     compile "mysql:mysql-connector-java:$mysql_connect"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson"
-    //代码生成
-    compile group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.1.2'
-    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+    compile "io.springfox:springfox-swagger2:$swagger2"
+    compile "io.springfox:springfox-swagger-ui:$swagger2"
+    compile "io.springfox:springfox-swagger-ui:$swagger2"
+    compile "org.projectlombok:lombok:$lombok"
 }
 
 compileKotlin {
