@@ -1,5 +1,6 @@
 package com.kotlin.controller
 
+import com.baomidou.mybatisplus.core.metadata.IPage
 import com.kotlin.entity.Info
 import com.kotlin.service.IInfoService
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,8 +20,8 @@ class InfoController{
     lateinit var iInfoService: IInfoService
 
     @GetMapping("/list")
-    fun listInfo():List<Info>{
-        return iInfoService.selectAll()
+    fun listInfo(current:Long,size:Long): IPage<Info> {
+        return iInfoService.selectAll(current,size)
     }
 
     @GetMapping("/info")

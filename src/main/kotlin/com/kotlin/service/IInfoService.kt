@@ -1,5 +1,6 @@
 package com.kotlin.service
 
+import com.baomidou.mybatisplus.core.metadata.IPage
 import com.baomidou.mybatisplus.extension.service.IService
 import com.kotlin.entity.Info
 
@@ -10,7 +11,7 @@ import com.kotlin.entity.Info
  */
 interface IInfoService:IService<Info> {
 
-    fun selectAll():List<Info>
+    fun selectAll(current:Long,size:Long): IPage<Info>
 
     fun selectById(id:Int): Info
 
