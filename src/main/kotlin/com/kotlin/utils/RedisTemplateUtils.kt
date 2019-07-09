@@ -336,13 +336,13 @@ class RedisTemplateUtils {
     /**
      * 将list放入缓存
      * @param key 键
-     * @param value 值
+     * @param values 值或者数组(一个或多个)
      * @param time 时间
      * @return true成功 false失败
      */
-    fun lSet(key: String,value: Any, time: Long = 0): Boolean {
+    fun lSet(key: String,vararg values: Any, time: Long = 0): Boolean {
         return try {
-            listOperations.rightPush(key, value)
+            redisTemplate.opsForList().rightPushAll(key, *values)
             if (time > 0) {
                 expire(key, time)
             }
@@ -360,7 +360,7 @@ class RedisTemplateUtils {
      * @param time 时间
      * @return true成功 false失败
      */
-//    fun lSet(key: String, values:MutableList<Any>, time: Long = 0): Boolean {
+//    fun lSet(key: String, values:MutableList<Any> , time: Long = 0): Boolean {
 //        return try {
 //            listOperations.rightPushAll(key,values)
 //            if (time > 0) {
@@ -498,7 +498,7 @@ class RedisTemplateUtils {
      */
     fun setRemove(key: String, vararg values: Any): Long {
         return try {
-            return redisTemplate.opsForSet().remove(key, *values)!!
+            return setOperations.remove(key, *values)!!
         } catch (e: Exception) {
             e.printStackTrace()
             0
