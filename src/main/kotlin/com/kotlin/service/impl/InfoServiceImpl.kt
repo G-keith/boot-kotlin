@@ -8,6 +8,9 @@ import com.kotlin.mapper.InfoMapper
 import com.kotlin.service.IInfoService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
+
+
 
 /**
  *@author keith
@@ -20,10 +23,13 @@ class InfoServiceImpl : ServiceImpl<InfoMapper, Info>(), IInfoService {
     @Autowired
     lateinit var infoMapper: InfoMapper
 
-    override fun selectAll(current: Long, size: Long): IPage<Info> {
+    override fun selectAll(current: Long, size: Long,name: String?): IPage<Info> {
         val page = Page<Info>(current, size)
-        return infoMapper.selectPage(page, null)
-        //return infoMapper.selectList(null)
+        val query=QueryWrapper<Info>()
+        name?.let {
+            query.like("name",name)
+        }
+        return infoMapper.selectPage(page, query)
     }
 
     override fun selectById(id: Int): Info {

@@ -11,7 +11,7 @@ import com.kotlin.entity.Info
  */
 interface IInfoService : IService<Info> {
 
-    fun selectAll(current: Long, size: Long): IPage<Info>
+    fun selectAll(current: Long, size: Long,name: String?): IPage<Info>
 
     fun selectById(id: Int): Info
 

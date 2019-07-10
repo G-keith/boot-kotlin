@@ -1,5 +1,6 @@
 package com.kotlin.controller
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import com.baomidou.mybatisplus.core.metadata.IPage
 import com.kotlin.entity.Info
 import com.kotlin.service.IInfoService
@@ -27,11 +28,12 @@ class InfoController {
     @GetMapping("/list")
     @ApiOperation(value = "分页查询个人信息")
     @ApiImplicitParams(
-        ApiImplicitParam(name = "current", value = "每页几条", dataType = "long", defaultValue = "10"),
-        ApiImplicitParam(name = "size", value = "第几页", dataType = "long", defaultValue = "1")
+        ApiImplicitParam(name = "current", value = "第几页", dataType = "long", defaultValue = "10"),
+        ApiImplicitParam(name = "size", value = "每页几条", dataType = "long", defaultValue = "1"),
+        ApiImplicitParam(name = "name", value = "姓名", dataType = "string", defaultValue = "1")
     )
-    fun listInfo(current: Long, size: Long): IPage<Info> {
-        return iInfoService.selectAll(current, size)
+    fun listInfo(current: Long, size: Long,name: String?): IPage<Info> {
+        return iInfoService.selectAll(current, size,name)
     }
 
     @GetMapping("/info")
