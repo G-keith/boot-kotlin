@@ -122,3 +122,12 @@ class RangeFunction {
 
 fun main() {
 }
+/*
+    在非null对象上执行lambda： let
+    将表达式作为局部范围中的变量引入： let
+    对象配置： apply
+    对象配置和计算结果： run
+    运行需要表达式的语句：非扩展名 run
+    附加效果： also
+    对对象进行分组函数调用： with
+ */
