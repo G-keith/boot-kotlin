@@ -29,4 +29,9 @@ class Info : Serializable {
         private const val serialVersionUID = 1L
     }
 
+    override fun toString(): String {
+        return "Info(id=$id, name='$name', age=$age, sex=$sex)"
+    }
+
+
 }

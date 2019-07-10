@@ -47,14 +47,15 @@ class InfoController {
     @ApiImplicitParams(
         ApiImplicitParam(name = "name", value = "名称", dataType = "string", required = true),
         ApiImplicitParam(name = "age", value = "年龄", dataType = "int", required = true),
-        ApiImplicitParam(name = "sex", value = "性别", dataType = "string", required = true)
+        ApiImplicitParam(name = "sex", value = "性别", dataType = "string")
     )
-    fun insertInfo(name: String, age: Int, sex: String?) {
-        val info = Info()
-        info.name = name
-        info.age = age
-        info.sex = sex
-        return iInfoService.insertInfo(info)
+    fun insertInfo(name: String, age: Int, sex: String?): Int {
+        return Info().let {
+            it.name = name
+            it.age = age
+            it.sex = sex
+            iInfoService.insertInfo(it)
+        }
     }
 
     @PutMapping("/info")
@@ -70,4 +71,20 @@ class InfoController {
         return iInfoService.deleteInfo(id)
     }
 
+    @GetMapping("/selectInfoById")
+    @ApiOperation(value = "根据主键id查询个人信息-注解形式xml")
+    @ApiImplicitParam(name = "id", value = "主键id", dataType = "int", required = true)
+    fun selectInfoById(id: Int): Info {
+        return iInfoService.findInfoById(id)
+    }
+
+    @GetMapping("/selectInfoByName")
+    @ApiOperation(value = "根据姓名查询个人信息列表-注解形式xml")
+    @ApiImplicitParams(
+        ApiImplicitParam(name = "name", value = "名称", dataType = "string"),
+        ApiImplicitParam(name = "sex", value = "性别", dataType = "string")
+    )
+    fun selectInfoByName(name: String?,sex: String?): List<Info> {
+        return iInfoService.findInfoByName(name?.trim(),sex?.trim())
+    }
 }

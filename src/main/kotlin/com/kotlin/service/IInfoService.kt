@@ -9,15 +9,19 @@ import com.kotlin.entity.Info
  *@date 2019/7/4
  *@version 1.0
  */
-interface IInfoService:IService<Info> {
+interface IInfoService : IService<Info> {
 
-    fun selectAll(current:Long,size:Long): IPage<Info>
+    fun selectAll(current: Long, size: Long): IPage<Info>
 
-    fun selectById(id:Int): Info
+    fun selectById(id: Int): Info
 
     fun updateInfo(info: Info)
 
-    fun deleteInfo(id:Int)
+    fun deleteInfo(id: Int)
 
-    fun insertInfo(info: Info)
+    fun insertInfo(info: Info): Int
+
+    fun findInfoById(id: Int): Info
+
+    fun findInfoByName(name: String?,sex:String?): List<Info>
 }
