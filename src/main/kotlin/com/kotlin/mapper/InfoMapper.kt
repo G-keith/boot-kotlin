@@ -21,5 +21,5 @@ interface InfoMapper : BaseMapper<Info> {
     fun findInfoById(@Param("id") id: Int): Info
 
     @SelectProvider(type = InfoMapperProvider::class, method = "findInfoByName")
-    fun findInfoByName(@Param("name")name: String?,@Param("sex")sex:String?): List<Info>
+    fun findInfoByName(@Param("name") name: String?, @Param("sex") sex: String?): List<Info>
 }

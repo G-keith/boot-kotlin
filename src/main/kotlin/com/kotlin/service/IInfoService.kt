@@ -23,5 +23,5 @@ interface IInfoService : IService<Info> {
 
     fun findInfoById(id: Int): Info
 
-    fun findInfoByName(name: String?,sex:String?): List<Info>
+    fun findInfoByName(name: String?, sex: String?): List<Info>
 }

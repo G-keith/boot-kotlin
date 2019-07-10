@@ -9,7 +9,7 @@ import org.apache.ibatis.jdbc.SQL
  *@version 1.0
  */
 class InfoMapperProvider {
-    fun findInfoByName(@Param("name")name: String?,@Param("sex") sex: String?): String {
+    fun findInfoByName(@Param("name") name: String?, @Param("sex") sex: String?): String {
         return object : SQL() {
             init {
                 SELECT("*")
@@ -20,7 +20,7 @@ class InfoMapperProvider {
                 if (sex != "" && sex != null) {
                     WHERE("sex like concat('%',#{sex},'%')")
                 }
-                ORDER_BY("age desc","sex asc")
+                ORDER_BY("age desc", "sex asc")
             }
         }.toString().also(::println)
     }

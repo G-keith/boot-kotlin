@@ -84,7 +84,7 @@ class InfoController {
         ApiImplicitParam(name = "name", value = "名称", dataType = "string"),
         ApiImplicitParam(name = "sex", value = "性别", dataType = "string")
     )
-    fun selectInfoByName(name: String?,sex: String?): List<Info> {
-        return iInfoService.findInfoByName(name?.trim(),sex?.trim())
+    fun selectInfoByName(name: String?, sex: String?): List<Info> {
+        return iInfoService.findInfoByName(name?.trim(), sex?.trim())
     }
 }

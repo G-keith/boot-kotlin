@@ -46,7 +46,7 @@ class InfoServiceImpl : ServiceImpl<InfoMapper, Info>(), IInfoService {
         return infoMapper.findInfoById(id)
     }
 
-    override fun findInfoByName(name: String?,sex:String?): List<Info> {
-        return infoMapper.findInfoByName(name,sex)
+    override fun findInfoByName(name: String?, sex: String?): List<Info> {
+        return infoMapper.findInfoByName(name, sex)
     }
 }
